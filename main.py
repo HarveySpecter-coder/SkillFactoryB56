@@ -7,7 +7,7 @@ for i in range(0, 3):
     print(''.join(cell[i * 3:i * 3 + 3]))  # drawing grid
 
 
-def draw_cell(pos, xo):
+def draw_cell(pos:int, xo) -> bool:
     if cell[pos - 1] == "[ ]":  # check emptiness cell
         cell[pos - 1] = "[{}]".format(xo)
     else:
@@ -17,7 +17,7 @@ def draw_cell(pos, xo):
     return True
 
 
-def whose_move(player_name, xo):
+def whose_move(player_name:str, xo:str) -> bool:
     while True:
         try:
             number = int(input(f"{player_name}. Enter a number of cell: "))
@@ -34,7 +34,7 @@ def whose_move(player_name, xo):
     return check_end_game(xo)
 
 
-def check_end_game(sign):
+def check_end_game(sign:str) -> bool:
     for k in range(0, 3):
         if f"[{sign}]" * 3 == ''.join(cell[k:7 + k:3]):
             return True
@@ -51,12 +51,12 @@ def clean():
         cell[k] = "[ ]"
 
 
-def restart_game(player_name, status):
+def restart_game(player_name:str, status:str) -> str:
     print(f"{player_name} {status}!!!")
     return input("Do you wanna restart the game? Y/N").lower()
 
 
-def check_odd():
+def check_odd() -> bool:
     if ("".join(cell).find("[ ]")) == -1:
         return True
     return False
