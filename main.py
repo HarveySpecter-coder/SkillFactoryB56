@@ -7,7 +7,7 @@ for i in range(0, 3):
     print(''.join(cell[i * 3:i * 3 + 3]))  # drawing grid
 
 
-def draw_cell(pos:int, xo) -> bool:
+def draw_cell(pos:int, xo:str) -> bool:
     if cell[pos - 1] == "[ ]":  # check emptiness cell
         cell[pos - 1] = "[{}]".format(xo)
     else:
